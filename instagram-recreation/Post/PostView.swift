@@ -109,14 +109,13 @@ struct PostView: View {
     // MARK: Post Information
     
     private var postInformation: some View {
-        VStack(alignment: .leading, spacing: postInformationVerticalSpacing){
+        VStack(alignment: .leading){
             Text(String(post.likeCount) + " likes")
             
                 .font(.footnote)
                 .fontWeight(.semibold)
             
             Text(post.author.username).font(.footnote).bold() + Text(" ") +  Text(post.caption).font(.footnote)
-         
             
             
         }
