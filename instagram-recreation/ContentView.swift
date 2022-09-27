@@ -11,22 +11,37 @@ struct ContentView: View {
     private let navigationButtonDimension: CGFloat = 20
     private let navigationBarHorizontalSpacing: CGFloat = 28
     private let cursiveLogoWidth: CGFloat = 120
-
+    
     var body: some View {
         NavigationView {
             FeedView(feed: .example)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Text("Cursive Logo")
+                        Image("cursive-logo")
+                            .resizable()
+                            .resizableSquare(dimension: cursiveLogoWidth)
                     }
-
+                    
                     ToolbarItem(placement: .navigationBarTrailing) {
                         HStack(spacing: navigationBarHorizontalSpacing) {
-                            Text("Plus")
-
-                            Text("Heart")
-
-                            Text("DM")
+                            
+                            
+                            NavigationLink(destination: NewPostView()) {
+                                Image(systemName: "plus.square")
+                                    .resizableSquare(dimension: navigationButtonDimension)
+                                    .foregroundColor(.primary)
+                            }
+                            
+                            NavigationLink(destination: NotificationView()) {
+                                Image(systemName: "heart")
+                                    .resizableSquare(dimension: navigationButtonDimension)
+                                    .foregroundColor(.primary)
+                            }
+                            NavigationLink(destination: DirectMessagesView()) {
+                                Image(systemName: "message")
+                                    .resizableSquare(dimension: navigationButtonDimension)
+                                    .foregroundColor(.primary)
+                            }
                         }
                     }
                 }

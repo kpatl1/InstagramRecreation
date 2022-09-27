@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 // MARK: PostView
 
 struct PostView: View {
@@ -25,33 +26,104 @@ struct PostView: View {
     private let padding: CGFloat = 12
     
     // MARK: Body
-
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack(alignment: .leading, spacing:mainVStackVerticalSpacing){
+            authorDetails
+            mainImage
+            engagementView
+            postInformation
+        }
     }
     
     // MARK: Author Details
-
+    
     private var authorDetails: some View {
-        Text("Hello, World!")
+        HStack(spacing:authorDetailsHorizontalSpacing){
+            
+            Image(post.author.profilePictureName).resizableSquare(dimension: profilePictureDimension)
+                .clipShape(Circle())
+            
+            
+            
+            Text(post.author.username)
+                .font(.subheadline)
+                .bold()
+            
+            NavigationLink(destination: DirectMessagesView()) {
+                Image(systemName: "ellipsis")
+                    .resizableSquare(dimension: 16)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .offset(x: -16)
+                    .foregroundColor(.primary)
+            }
+        }
+        .offset(x: authorDetailsHorizontalSpacing)
     }
     
     // MARK: Main Image
     
     private var mainImage: some View {
-        Text("Hello, World!")
+        Image(post.imageName).resizableSquare(dimension: UIScreen.main.bounds.width)
     }
     
     // MARK: Engagement View
     
     private var engagementView: some View {
-        Text("Hello, World!")
+        HStack(spacing: engagementViewHorizontalSpacing){
+            
+            Button(action: {isLiked.toggle()}, label: {
+                Image(systemName: isLiked ?
+                      "heart.fill" : "heart")
+                .resizableSquare(dimension: engagementButtonDimension)
+                .foregroundColor(isLiked ? .red : .primary)
+            }
+            )
+            
+            NavigationLink(destination: CommentsView()) {
+                Image(systemName: "message")
+                    .resizableSquare(dimension: engagementButtonDimension)
+                    .foregroundColor(.primary)
+            }
+            
+            NavigationLink(destination: ShareView()) {
+                Image(systemName: "paperplane")
+                    .resizableSquare(dimension: engagementButtonDimension)
+                    .foregroundColor(.primary)
+            }
+            
+            Button(action: {isSaved.toggle()}, label: {
+                Image(systemName: isSaved ?
+                      "bookmark.fill" : "bookmark")
+                .resizableSquare(dimension: engagementButtonDimension)
+                .foregroundColor(.primary)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .offset(x: -16)
+            }
+            )
+            
+        }
+        .offset(x:8)
     }
     
     // MARK: Post Information
     
     private var postInformation: some View {
-        Text("Hello, World!")
+        VStack(alignment: .leading, spacing: postInformationVerticalSpacing){
+            Text(String(post.likeCount) + " likes")
+            
+                .font(.footnote)
+                .fontWeight(.semibold)
+            
+            
+            Text(post.author.username + " " + post.caption)
+                .font(.footnote)
+            
+            
+        }
+        .frame(width: UIScreen.main.bounds.width - 16)
+        .offset(x:8)
+        
     }
 }
 

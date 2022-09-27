@@ -13,12 +13,19 @@ struct FeedView: View {
     private let feedVerticalSpacing: CGFloat = 8
     
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            ScrollView{
+                ForEach(feed.posts, id: \.id)
+                {(post) in
+                    PostView(post: post)
+                }
+            }
+        }
     }
-}
-
-struct FeedView_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedView(feed: .example)
+    
+    struct FeedView_Previews: PreviewProvider {
+        static var previews: some View {
+            FeedView(feed: .example)
+        }
     }
 }
