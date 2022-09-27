@@ -61,7 +61,6 @@
 		875FCF9128D3B454005132F2 = {
 			isa = PBXGroup;
 			children = (
-				A637EF9F28E369EA00650C83 /* Screenshots */,
 				875FCF9C28D3B454005132F2 /* instagram-recreation */,
 				875FCF9B28D3B454005132F2 /* Products */,
 			);
@@ -78,9 +77,7 @@
 		875FCF9C28D3B454005132F2 /* instagram-recreation */ = {
 			isa = PBXGroup;
 			children = (
-				A6D1B46928E36A7600B58EF4 /* Simulator Screen Shot - iPhone 14 Pro - 2022-09-27 at 13.26.46.png */,
-				A6D1B46A28E36A7600B58EF4 /* Simulator Screen Shot - iPhone 14 Pro - 2022-09-27 at 13.26.50.png */,
-				A6D1B46B28E36A7600B58EF4 /* Simulator Screen Shot - iPhone 14 Pro - 2022-09-27 at 13.26.56.png */,
+				A637EF9F28E369EA00650C83 /* Screenshots */,
 				875FCF9D28D3B454005132F2 /* p00_tiktokApp.swift */,
 				875FCF9F28D3B454005132F2 /* ContentView.swift */,
 				A658C90928E3375900B6CF70 /* Interaction */,
@@ -130,6 +127,9 @@
 		A637EF9F28E369EA00650C83 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				A6D1B46928E36A7600B58EF4 /* Simulator Screen Shot - iPhone 14 Pro - 2022-09-27 at 13.26.46.png */,
+				A6D1B46A28E36A7600B58EF4 /* Simulator Screen Shot - iPhone 14 Pro - 2022-09-27 at 13.26.50.png */,
+				A6D1B46B28E36A7600B58EF4 /* Simulator Screen Shot - iPhone 14 Pro - 2022-09-27 at 13.26.56.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
