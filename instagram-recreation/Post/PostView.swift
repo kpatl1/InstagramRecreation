@@ -115,9 +115,8 @@ struct PostView: View {
                 .font(.footnote)
                 .fontWeight(.semibold)
             
-            
-            Text(post.author.username + " " + post.caption)
-                .font(.footnote)
+            Text(post.author.username).font(.footnote).bold() + Text(" ") +  Text(post.caption).font(.footnote)
+         
             
             
         }
